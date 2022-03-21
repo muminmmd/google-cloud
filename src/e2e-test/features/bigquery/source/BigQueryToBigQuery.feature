@@ -23,7 +23,10 @@ Feature: BigQuery source - Verification of BigQuery to BigQuery successful data 
     Then Connect source as "BigQuery" and sink as "BigQuery" to establish connection
     Then Save the pipeline
     Then Preview and run the pipeline
-    Then Verify the preview of pipeline is "success"
+    Then Wait till pipeline preview is in running state
+    Then Open and capture pipeline preview logs
+    Then Verify the preview run status of pipeline in the logs is "succeeded"
+    Then Close the pipeline logs
     Then Click on preview data for BigQuery sink
     Then Verify preview output schema matches the outputSchema captured in properties
     Then Close the preview data
@@ -57,7 +60,9 @@ Feature: BigQuery source - Verification of BigQuery to BigQuery successful data 
     Then Connect source as "BigQuery" and sink as "BigQuery" to establish connection
     Then Save the pipeline
     Then Preview and run the pipeline
-    Then Verify the preview of pipeline is "failed"
+    Then Wait till pipeline preview is in running state
+    Then Open and capture pipeline preview logs
+    Then Verify the preview run status of pipeline in the logs is "failed"
 
   @BQ_PARTITIONED_SOURCE_TEST @BQ_SINK_TEST
   Scenario: Verify records are getting transferred with respect to partitioned date
@@ -81,7 +86,10 @@ Feature: BigQuery source - Verification of BigQuery to BigQuery successful data 
     Then Connect source as "BigQuery" and sink as "BigQuery" to establish connection
     Then Save the pipeline
     Then Preview and run the pipeline
-    Then Verify the preview of pipeline is "success"
+    Then Wait till pipeline preview is in running state
+    Then Open and capture pipeline preview logs
+    Then Verify the preview run status of pipeline in the logs is "succeeded"
+    Then Close the pipeline logs
     Then Click on preview data for BigQuery sink
     Then Verify preview output schema matches the outputSchema captured in properties
     Then Close the preview data
